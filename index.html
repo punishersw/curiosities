@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interação Divertida com o Mouse</title>
+    <title>Interação Energética com o Mouse</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             background: linear-gradient(135deg, #1e1e1e, #121212);
-            overflow: hidden; /* Desabilitar rolagem padrão */
-            height: 100vh; /* Altura da página */
-            position: relative; /* Para posicionar os círculos */
+            overflow: hidden;
+            height: 100vh;
+            position: relative;
         }
 
         .parallax {
@@ -25,46 +25,45 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            z-index: -1; /* Coloca o fundo atrás de todo o conteúdo */
-            filter: blur(2px); /* Adiciona um desfoque para o efeito parallax */
+            z-index: -1;
+            filter: blur(2px);
         }
 
         .content {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center; /* Centralizado verticalmente */
-            height: 100vh; /* Altura inicial */
+            justify-content: center;
+            height: 100vh;
             text-align: center;
             color: #e0e0e0;
             padding: 20px;
-            position: relative; /* Para que a interação do mouse ocorra atrás do conteúdo */
-            z-index: 1; /* Certifica-se de que o conteúdo está na frente */
+            position: relative;
+            z-index: 1;
         }
 
         p {
-            font-size: 1.5em; /* Aumentado o tamanho da fonte */
+            font-size: 1.5em;
             margin-bottom: 20px;
-            color: #b0bec5; /* Um tom mais claro para contraste */
-            transform: scale(1); /* Ponto de origem alterado para normal */
+            color: #b0bec5;
         }
 
         ol {
             list-style: none;
             padding: 0;
-            max-width: 600px; /* Limitar a largura da lista para centralizar */
+            max-width: 600px;
         }
 
         li {
-            background: rgba(44, 44, 44, 0.8); /* Cartões em um tom mais claro e semi-transparente */
+            background: rgba(44, 44, 44, 0.8);
             margin: 10px 0;
             padding: 15px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
             transition: transform 0.3s, background-color 0.3s;
             animation: zoomIn 0.5s ease forwards;
-            opacity: 0; /* Começa invisível */
-            animation-delay: calc(0.5s + 0.2s * var(--i)); /* Atraso baseado na posição do item */
+            opacity: 0;
+            animation-delay: calc(0.5s + 0.2s * var(--i));
         }
 
         @keyframes zoomIn {
@@ -80,21 +79,27 @@
 
         li:hover {
             transform: translateY(-3px);
-            background-color: #3a3a3a; /* Fundo mais claro ao passar o mouse */
+            background-color: #3a3a3a;
         }
 
-        .color-indicator {
-            font-weight: bold;
-        }
-
-        /* Estilo dos círculos que aparecem ao passar o mouse */
         .circle {
             position: absolute;
             border-radius: 50%;
-            pointer-events: none; /* Para que os círculos não bloqueiem a interação */
-            transition: transform 0.2s, opacity 0.2s;
-            opacity: 0.7;
-            z-index: 0; /* Círculos atrás do conteúdo */
+            pointer-events: none;
+            opacity: 0.5;
+            z-index: 0;
+            transition: transform 1s ease, opacity 1s ease;
+        }
+
+        /* Animação de movimento da energia */
+        @keyframes moveEnergy {
+            0% {
+                transform: scale(0) translate(0, 0);
+            }
+            100% {
+                transform: scale(1) translate(-20px, -20px); /* Mover levemente para cima e para a esquerda */
+                opacity: 0;
+            }
         }
     </style>
 </head>
@@ -113,33 +118,42 @@
         </ol>
     </div>
 
+    <audio id="soundEffect" src="https://www.soundjay.com/button/sounds/button-4.mp3" preload="auto"></audio>
+
     <script>
         const body = document.body;
+        const soundEffect = document.getElementById('soundEffect');
+        let lastMouseX = 0;
+        let lastMouseY = 0;
 
-        // Função para criar círculos ao passar o mouse
+        // Função para criar círculos de energia ao passar o mouse
         function createCircle(e) {
-            const circle = document.createElement('div');
-            circle.classList.add('circle');
-            // Definindo uma posição aleatória e tamanho
-            const size = Math.random() * 50 + 20; // Tamanho entre 20 e 70px
-            circle.style.width = `${size}px`;
-            circle.style.height = `${size}px`;
-            circle.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`; // Cor aleatória
+            // Para limitar a frequência de círculos
+            if (Math.abs(e.pageX - lastMouseX) > 20 || Math.abs(e.pageY - lastMouseY) > 20) {
+                const circle = document.createElement('div');
+                circle.classList.add('circle');
+                const size = Math.random() * 40 + 30; // Tamanho entre 30 e 70px
+                circle.style.width = `${size}px`;
+                circle.style.height = `${size}px`;
+                circle.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`; // Cor aleatória
+                circle.style.left = `${e.pageX}px`;
+                circle.style.top = `${e.pageY}px`;
+                circle.style.animation = 'moveEnergy 1s forwards'; // Adicionando animação de movimento
 
-            // Posição do círculo
-            circle.style.left = `${e.pageX}px`;
-            circle.style.top = `${e.pageY}px`;
+                body.appendChild(circle);
 
-            body.appendChild(circle);
+                // Efeito sonoro
+                soundEffect.currentTime = 0; // Reiniciar o som
+                soundEffect.play();
 
-            // Remover o círculo após um tempo
-            setTimeout(() => {
-                circle.style.transform = 'scale(0)';
-                circle.style.opacity = '0';
+                // Remover o círculo após um tempo
                 setTimeout(() => {
                     circle.remove();
-                }, 200); // Tempo para esperar a animação de remoção
-            }, 200);
+                }, 1000); // Tempo de vida do círculo
+
+                lastMouseX = e.pageX; // Atualiza a última posição do mouse
+                lastMouseY = e.pageY; // Atualiza a última posição do mouse
+            }
         }
 
         // Evento de movimento do mouse
