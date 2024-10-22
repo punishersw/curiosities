@@ -3,74 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Descubra Curiosidades Ocultas</title>
+    <title>Primeira Página - Livro</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Georgia', serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #1e1e1e, #121212);
-            overflow: hidden; /* Desabilitar rolagem padrão */
-        }
-
-        .parallax {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('your-background-image.jpg'); /* Adicione sua imagem de fundo */
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            z-index: -1; /* Coloca o fundo atrás de todo o conteúdo */
-            filter: blur(2px); /* Adiciona um desfoque para o efeito parallax */
-        }
-
-        .content {
+            background-color: #121212; /* Fundo escuro */
+            color: #e0e0e0; /* Texto claro */
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            justify-content: center; /* Alinhamento vertical central */
             height: 100vh;
+        }
+
+        .book-page {
+            width: 60%;
+            max-width: 800px;
+            background-color: #1e1e1e; /* Fundo da página do livro */
+            padding: 40px;
+            border: 1px solid #ccc;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            text-align: justify;
+            line-height: 1.6;
+            position: relative;
+            border-radius: 8px; /* Bordas arredondadas */
+        }
+
+        .book-page:before {
+            content: 'Primeira Página';
+            font-size: 0.9em;
+            position: absolute;
+            top: -30px;
+            left: 0;
+            right: 0;
             text-align: center;
-            color: #e0e0e0;
-            padding: 20px;
-            box-sizing: border-box; /* Garante que padding seja considerado dentro do tamanho da viewport */
+            color: #bbb; /* Cor do título */
+            letter-spacing: 2px;
         }
 
         p {
-            font-size: 1.5em; /* Tamanho para desktop */
             margin-bottom: 20px;
-            color: #b0bec5;
+            color: #b0bec5; /* Cor do texto */
         }
 
-        a {
-            color: #ff9800; /* Cor do link */
-            text-decoration: none; /* Remove sublinhado */
-            font-weight: bold;
+        button {
+            display: block;
+            margin: 20px auto 0;
+            padding: 10px 20px;
+            background-color: #333; /* Fundo do botão */
+            color: white; /* Cor do texto do botão */
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
         }
 
-        /* Estilos responsivos */
-        @media (max-width: 768px) {
-            p {
-                font-size: 1.2em; /* Ajusta o tamanho da fonte em dispositivos menores */
-            }
-        }
-
-        @media (max-width: 480px) {
-            p {
-                font-size: 1em; /* Ajusta ainda mais o tamanho da fonte em telas pequenas */
-            }
+        button:hover {
+            background-color: #555; /* Fundo do botão ao passar o mouse */
         }
     </style>
 </head>
 <body>
-    <div class="parallax"></div>
-    <div class="content">
-        <p>Bem-vindo ao mundo das emoções de Saymon!</p>
-        <a href="index-1.html">Clique aqui para descobrir curiosidades ocultas!</a>
+    <div class="book-page">
+        <p>Saymon desperta ao amanhecer trajado com um uniforme impecável, sai do seu cômodo e segue em direção ao banheiro para realizar suas cuidados. Ao terminar, vai em direção ao refeitório e come algo, depois participa de uma sessão de treinamentos físicos rigorosos, fazendo exercícios de alta energia, como polichinelos e agachamentos para elevar a frequência cardíaca.</p>
+        <p>Então, ele passa para estações de levantamento de peso, realizando séries de agachamentos com barras focando na construção de força muscular. Participa de duelos com espadas de treinamentos, aprimorando a precisão nos movimentos. Realiza uma marcha, praticando sintonia e coordenação, incluindo mudanças de direção.</p>
+        <p>Envolve-se em um circuito de alta intensidade, alternando entre exercícios como sprint, saltos e burpes, visando melhorar a resistência cardiovascular e força. Termina com exercícios de alongamentos para ajudar na recuperação muscular. Tudo isso durou em torno de 2 horas e 30 minutos, como sempre.</p>
+        <p>Para finalizar, Saymon decide focar em fortalecer seu núcleo. Inalando profundamente, ele se conecta com o seu eu interior, sentindo a luz do seu núcleo se expandindo a cada inspiração. Com o tempo, sente as impurezas se dissipando, enquanto a energia da atmosfera o envolve, purificando-o e fortalecendo-o.</p>
+        <p>Após 30 minutos de meditação intensa, Saymon abre os olhos, sentindo uma nova vitalidade.</p>
+
+        <button>Avançar</button>
     </div>
 </body>
 </html>
