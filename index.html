@@ -7,116 +7,114 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #121212; /* Fundo escuro e sofisticado */
-            color: #e0e0e0; /* Texto claro para contraste */
-            margin: 0; /* Remover margem padrão */
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(135deg, #1e1e1e, #121212);
+        }
+
+        .parallax {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('your-background-image.jpg'); /* Adicione sua imagem de fundo */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: -1; /* Coloca o fundo atrás de todo o conteúdo */
+            filter: blur(2px); /* Adiciona um desfoque para o efeito parallax */
+        }
+
+        .content {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
             text-align: center;
-            overflow: hidden; /* Esconde a barra de rolagem */
+            color: #e0e0e0;
+            padding: 20px;
         }
 
         h1 {
             font-size: 2.5em;
-            margin: 0 0 20px; /* Reduzir a margem superior */
+            margin-bottom: 10px;
             color: #ffffff; /* Título em branco total */
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-            animation: fadeIn 1s; /* Animação ao aparecer */
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            animation: fadeIn 1s ease forwards;
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         p {
             font-size: 1.2em;
-            margin-bottom: 30px;
-            color: #b0bec5; /* Tom claro para contraste */
-            line-height: 1.5; /* Melhora a legibilidade */
-            max-width: 600px; /* Limita a largura do parágrafo */
+            margin-bottom: 20px;
+            color: #b0bec5; /* Um tom mais claro para contraste */
+            animation: fadeIn 1s ease forwards;
+            animation-delay: 0.5s; /* Atraso na animação do parágrafo */
         }
 
         ol {
             list-style: none;
             padding: 0;
-            max-width: 600px; /* Limita a largura da lista */
-            margin: 0 auto; /* Centraliza a lista */
+            max-width: 600px; /* Limitar a largura da lista para centralizar */
         }
 
         li {
-            background: #2c2c2c; /* Cartões em um tom mais claro */
-            margin: 15px 0;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s; /* Transições suaves */
-            position: relative; /* Para o efeito de foco */
-            overflow: hidden; /* Para esconder o pseudo-elemento */
-            opacity: 0; /* Inicialmente invisível para animação */
-            animation: slideIn 0.5s forwards; /* Animação ao aparecer */
+            background: rgba(44, 44, 44, 0.8); /* Cartões em um tom mais claro e semi-transparente */
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, background-color 0.3s;
+            animation: zoomIn 0.5s ease forwards;
+            opacity: 0; /* Começa invisível */
+            animation-delay: calc(0.5s + 0.2s * var(--i)); /* Atraso baseado na posição do item */
         }
 
-        @keyframes slideIn {
+        @keyframes zoomIn {
             from {
-                transform: translateY(20px);
+                transform: scale(0.5);
                 opacity: 0;
             }
             to {
-                transform: translateY(0);
+                transform: scale(1);
                 opacity: 1;
             }
         }
 
-        li::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.1); /* Leve camada de mistério */
-            opacity: 0;
-            transition: opacity 0.3s;
-            z-index: 0; /* Coloca abaixo do conteúdo */
-        }
-
         li:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             background-color: #3a3a3a; /* Fundo mais claro ao passar o mouse */
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7); /* Sombra mais pronunciada */
-        }
-
-        li:hover::before {
-            opacity: 1; /* Revela a camada ao passar o mouse */
         }
 
         .color-indicator {
             font-weight: bold;
-            font-size: 1.1em; /* Aumenta levemente o tamanho */
         }
     </style>
 </head>
 <body>
-    <h1>╰•★★ ❝𝐃𝐞𝐬𝐜𝐮𝐛𝐫𝐚 𝐂𝐮𝐫𝐢𝐨𝐬𝐢𝐝𝐚𝐝𝐞𝐬 𝐎𝐜𝐮𝐥𝐭𝐚𝐬❞ ★★•╯</h1>
-    <p>As pupilas de Saymon mudam de cor conforme suas emoções, revelando seus sentimentos internos de forma única. Cada cor reflete um estado emocional específico:</p>
-    <ol>
-        <li style="animation-delay: 0.2s;"><span class="color-indicator" style="color: #ffeb3b;">𝐀𝐦𝐚𝐫𝐞𝐥𝐨</span> ➙ Representa esperança e expectativa sobre o futuro.</li>
-        <li style="animation-delay: 0.4s;"><span class="color-indicator" style="color: #00bcd4;">𝐂𝐢𝐚𝐧𝐨</span> ➙ Indica um estado de calma, capaz de neutralizar o descontrole.</li>
-        <li style="animation-delay: 0.6s;"><span class="color-indicator" style="color: #9e9e9e;">𝐂𝐢𝐧𝐳𝐚</span> ➙ Sinaliza indecisão e confusão, dificultando escolhas e ações.</li>
-        <li style="animation-delay: 0.8s;"><span class="color-indicator" style="color: #f44336;">𝐕𝐞𝐫𝐦𝐞𝐥𝐡𝐨</span> ➙ Expressa uma raiva imensa e incontrolável, demonstrando fúria extrema.</li>
-        <li style="animation-delay: 1.0s;"><span class="color-indicator" style="color: #4caf50;">𝐕𝐞𝐫𝐝𝐞</span> ➙ Reflete curiosidade e um desejo profundo de aprender e explorar.</li>
-        <li style="animation-delay: 1.2s;"><span class="color-indicator" style="color: #9c27b0;">𝐑𝐨𝐱𝐨</span> ➙ Simboliza sabedoria, envolta em mistérios e enigmas.</li>
-        <li style="animation-delay: 1.4s;"><span class="color-indicator" style="color: #ff9800;">𝐋𝐚𝐫𝐚𝐧𝐣𝐚</span> ➙ Denota um sentimento de felicidade e alegria intensa.</li>
-    </ol>
+    <div class="parallax"></div>
+    <div class="content">
+        <h1>╰•★★ ❝𝐃𝐞𝐬𝐜𝐮𝐛𝐫𝐚 𝐂𝐮𝐫𝐢𝐨𝐬𝐢𝐝𝐚𝐝𝐞𝐬 𝐎𝐜𝐮𝐥𝐭𝐚𝐬❞ ★★•╯</h1>
+        <p>As pupilas de Saymon mudam de cor conforme suas emoções, revelando seus sentimentos internos de forma única. Cada cor reflete um estado emocional específico:</p>
+        <ol>
+            <li style="--i:0;"><span class="color-indicator" style="color: #ffeb3b;">𝐀𝐦𝐚𝐫𝐞𝐥𝐨</span> ➙ Representa esperança e expectativa sobre o futuro.</li>
+            <li style="--i:1;"><span class="color-indicator" style="color: #00bcd4;">𝐂𝐢𝐚𝐧𝐨</span> ➙ Indica um estado de calma, capaz de neutralizar o descontrole.</li>
+            <li style="--i:2;"><span class="color-indicator" style="color: #9e9e9e;">𝐂𝐢𝐧𝐳𝐚</span> ➙ Sinaliza indecisão e confusão, dificultando escolhas e ações.</li>
+            <li style="--i:3;"><span class="color-indicator" style="color: #f44336;">𝐕𝐞𝐫𝐦𝐞𝐥𝐡𝐨</span> ➙ Expressa uma raiva imensa e incontrolável, demonstrando fúria extrema.</li>
+            <li style="--i:4;"><span class="color-indicator" style="color: #4caf50;">𝐕𝐞𝐫𝐝𝐞</span> ➙ Reflete curiosidade e um desejo profundo de aprender e explorar.</li>
+            <li style="--i:5;"><span class="color-indicator" style="color: #9c27b0;">𝐑𝐨𝐱𝐨</span> ➙ Simboliza sabedoria, envolta em mistérios e enigmas.</li>
+            <li style="--i:6;"><span class="color-indicator" style="color: #ff9800;">𝐋𝐚𝐫𝐚𝐧𝐣𝐚</span> ➙ Denota um sentimento de felicidade e alegria intensa.</li>
+        </ol>
+    </div>
 </body>
 </html>
