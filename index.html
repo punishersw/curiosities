@@ -32,12 +32,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: center; /* Alinhamento vertical central */
             height: 100vh;
             text-align: center;
             color: #e0e0e0;
             padding: 20px;
-            overflow-y: auto;
             box-sizing: border-box; /* Garante que padding seja considerado dentro do tamanho da viewport */
         }
 
@@ -45,46 +44,11 @@
             font-size: 1.5em; /* Tamanho para desktop */
             margin-bottom: 20px;
             color: #b0bec5;
-            transform: scale(1);
         }
 
-        ol {
-            list-style: none;
-            padding: 0;
-            max-width: 600px; /* Limita a largura da lista para centralizar */
-            width: 100%; /* Faz a lista ocupar toda a largura disponível em dispositivos menores */
-        }
-
-        li {
-            background: rgba(44, 44, 44, 0.8);
-            margin: 10px 0;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.7);
-            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
-            opacity: 0;
-            animation: zoomIn 0.5s ease forwards;
-            animation-delay: calc(0.5s + 0.2s * var(--i));
-        }
-
-        @keyframes zoomIn {
-            from {
-                transform: scale(0.5);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        li:hover {
-            transform: translateY(-3px);
-            background-color: #3a3a3a;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
-        }
-
-        .color-indicator {
+        a {
+            color: #ff9800; /* Cor do link */
+            text-decoration: none; /* Remove sublinhado */
             font-weight: bold;
         }
 
@@ -93,23 +57,11 @@
             p {
                 font-size: 1.2em; /* Ajusta o tamanho da fonte em dispositivos menores */
             }
-
-            li {
-                padding: 10px; /* Reduz o padding dos itens em dispositivos menores */
-            }
-
-            ol {
-                max-width: 100%; /* Garante que a lista ocupe toda a largura da tela em celulares */
-            }
         }
 
         @media (max-width: 480px) {
             p {
                 font-size: 1em; /* Ajusta ainda mais o tamanho da fonte em telas pequenas */
-            }
-
-            li {
-                padding: 8px; /* Reduz o padding ainda mais em celulares */
             }
         }
     </style>
@@ -117,16 +69,8 @@
 <body>
     <div class="parallax"></div>
     <div class="content">
-        <p>As pupilas de Saymon mudam de cor conforme suas emoções, revelando seus sentimentos internos de forma única. Cada cor reflete um estado emocional específico:</p>
-        <ol>
-            <li style="--i:0;"><span class="color-indicator" style="color: #ffeb3b;">𝐀𝐦𝐚𝐫𝐞𝐥𝐨</span> ➙ Representa esperança e expectativa sobre o futuro.</li>
-            <li style="--i:1;"><span class="color-indicator" style="color: #00bcd4;">𝐂𝐢𝐚𝐧𝐨</span> ➙ Indica um estado de calma, capaz de neutralizar o descontrole.</li>
-            <li style="--i:2;"><span class="color-indicator" style="color: #9e9e9e;">𝐂𝐢𝐧𝐳𝐚</span> ➙ Sinaliza indecisão e confusão, dificultando escolhas e ações.</li>
-            <li style="--i:3;"><span class="color-indicator" style="color: #f44336;">𝐕𝐞𝐫𝐦𝐞𝐥𝐡𝐨</span> ➙ Expressa uma raiva imensa e incontrolável, demonstrando fúria extrema.</li>
-            <li style="--i:4;"><span class="color-indicator" style="color: #4caf50;">𝐕𝐞𝐫𝐝𝐞</span> ➙ Reflete curiosidade e um desejo profundo de aprender e explorar.</li>
-            <li style="--i:5;"><span class="color-indicator" style="color: #9c27b0;">𝐑𝐨𝐱𝐨</span> ➙ Simboliza sabedoria, envolta em mistérios e enigmas.</li>
-            <li style="--i:6;"><span class="color-indicator" style="color: #ff9800;">𝐋𝐚𝐫𝐚𝐧𝐣𝐚</span> ➙ Denota um sentimento de felicidade e alegria intensa.</li>
-        </ol>
+        <p>Bem-vindo ao mundo das emoções de Saymon!</p>
+        <a href="index-1.html">Clique aqui para descobrir curiosidades ocultas!</a>
     </div>
 </body>
 </html>
