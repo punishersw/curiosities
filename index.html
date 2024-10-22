@@ -9,10 +9,8 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            height: 100vh;
-            overflow: hidden;
-            position: relative;
             background: linear-gradient(135deg, #1e1e1e, #121212);
+            overflow: hidden; /* Desabilitar rolagem padrão */
         }
 
         .parallax {
@@ -34,28 +32,16 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
+            justify-content: flex-start; /* Ajustado para o início da página */
+            height: 100vh; /* Altura inicial */
             text-align: center;
             color: #e0e0e0;
             padding: 20px;
-        }
-
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            color: #ffffff; /* Título em branco total */
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-            animation: fadeIn 1s ease forwards;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            overflow-y: auto; /* Permite rolagem na vertical */
         }
 
         p {
-            font-size: 1.2em;
+            font-size: 1.5em; /* Aumentado para mais destaque */
             margin-bottom: 20px;
             color: #b0bec5; /* Um tom mais claro para contraste */
             animation: fadeIn 1s ease forwards;
@@ -78,6 +64,11 @@
             animation: zoomIn 0.5s ease forwards;
             opacity: 0; /* Começa invisível */
             animation-delay: calc(0.5s + 0.2s * var(--i)); /* Atraso baseado na posição do item */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         @keyframes zoomIn {
@@ -104,7 +95,6 @@
 <body>
     <div class="parallax"></div>
     <div class="content">
-        <h1>╰•★★ ❝𝐃𝐞𝐬𝐜𝐮𝐛𝐫𝐚 𝐂𝐮𝐫𝐢𝐨𝐬𝐢𝐝𝐚𝐝𝐞𝐬 𝐎𝐜𝐮𝐥𝐭𝐚𝐬❞ ★★•╯</h1>
         <p>As pupilas de Saymon mudam de cor conforme suas emoções, revelando seus sentimentos internos de forma única. Cada cor reflete um estado emocional específico:</p>
         <ol>
             <li style="--i:0;"><span class="color-indicator" style="color: #ffeb3b;">𝐀𝐦𝐚𝐫𝐞𝐥𝐨</span> ➙ Representa esperança e expectativa sobre o futuro.</li>
