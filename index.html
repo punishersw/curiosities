@@ -9,86 +9,104 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #1e1e1e, #121212);
-            overflow: hidden; /* Desabilitar rolagem padrão */
+            background: linear-gradient(135deg, #0d0d0d, #121212);
+            overflow: hidden;
+            cursor: crosshair;
+            color: #e0e0e0;
         }
 
+        /* Efeito de Parallax Avançado */
         .parallax {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('your-background-image.jpg'); /* Adicione sua imagem de fundo */
-            background-attachment: fixed;
+            background-image: url('your-background-image.jpg');
             background-position: center;
-            background-repeat: no-repeat;
             background-size: cover;
-            z-index: -1; /* Coloca o fundo atrás de todo o conteúdo */
-            filter: blur(2px); /* Adiciona um desfoque para o efeito parallax */
+            z-index: -1;
+            filter: blur(3px) brightness(0.8);
+            will-change: transform;
+        }
+
+        /* Efeito de Neon Futurista */
+        h1, p, .color-indicator {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5);
         }
 
         .content {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* Ajustado para o início da página */
-            height: 100vh; /* Altura inicial */
+            justify-content: center;
+            height: 100vh;
             text-align: center;
-            color: #e0e0e0;
             padding: 20px;
-            overflow-y: auto; /* Permite rolagem na vertical */
+            overflow-y: auto;
         }
 
         p {
-            font-size: 1.5em; /* Aumentado o tamanho da fonte */
+            font-size: 2em;
             margin-bottom: 20px;
-            color: #b0bec5; /* Um tom mais claro para contraste */
-            transform: scale(1); /* Ponto de origem alterado para normal */
+            transition: color 0.3s ease;
         }
 
         ol {
             list-style: none;
             padding: 0;
-            max-width: 600px; /* Limitar a largura da lista para centralizar */
+            max-width: 800px;
+            width: 100%;
         }
 
         li {
-            background: rgba(44, 44, 44, 0.8); /* Cartões em um tom mais claro e semi-transparente */
-            margin: 10px 0;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.7);
-            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
-            opacity: 0; /* Começa invisível */
-            animation: zoomIn 0.5s ease forwards;
-            animation-delay: calc(0.5s + 0.2s * var(--i)); /* Atraso baseado na posição do item */
+            background: rgba(50, 50, 50, 0.85);
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.9);
+            transition: transform 0.4s ease, background-color 0.4s, box-shadow 0.4s;
+            opacity: 0;
+            animation: float 1s ease forwards;
+            animation-delay: calc(0.3s * var(--i));
         }
 
-        @keyframes zoomIn {
+        /* Animação de flutuação para Elon Musk vibes */
+        @keyframes float {
             from {
-                transform: scale(0.5);
+                transform: translateY(20px) scale(0.9);
                 opacity: 0;
             }
             to {
-                transform: scale(1);
+                transform: translateY(0) scale(1);
                 opacity: 1;
             }
         }
 
         li:hover {
-            transform: translateY(-3px);
-            background-color: #3a3a3a; /* Fundo mais claro ao passar o mouse */
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8); /* Aumenta a sombra ao passar o mouse */
+            transform: translateY(-8px) scale(1.02);
+            background-color: #424242;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 1);
         }
 
         .color-indicator {
             font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        /* Sombras dinâmicas baseadas no movimento do mouse */
+        body:hover li {
+            transition: box-shadow 0.5s;
+        }
+
+        @keyframes neonPulse {
+            0% { box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); }
+            100% { box-shadow: 0 0 30px rgba(255, 255, 255, 0.8); }
         }
     </style>
 </head>
 <body>
-    <div class="parallax"></div>
+    <div class="parallax" id="parallax"></div>
     <div class="content">
         <p>As pupilas de Saymon mudam de cor conforme suas emoções, revelando seus sentimentos internos de forma única. Cada cor reflete um estado emocional específico:</p>
         <ol>
@@ -101,5 +119,16 @@
             <li style="--i:6;"><span class="color-indicator" style="color: #ff9800;">𝐋𝐚𝐫𝐚𝐧𝐣𝐚</span> ➙ Denota um sentimento de felicidade e alegria intensa.</li>
         </ol>
     </div>
+
+    <script>
+        // Efeito Parallax avançado
+        document.addEventListener('mousemove', function(e) {
+            const parallax = document.getElementById('parallax');
+            const speed = 0.05;
+            const x = (window.innerWidth - e.pageX * speed) / 100;
+            const y = (window.innerHeight - e.pageY * speed) / 100;
+            parallax.style.transform = `translate(${x}px, ${y}px)`;
+        });
+    </script>
 </body>
 </html>
