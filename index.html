@@ -32,37 +32,39 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* Ajustado para o início da página */
-            height: 100vh; /* Altura inicial */
+            justify-content: flex-start;
+            height: 100vh;
             text-align: center;
             color: #e0e0e0;
             padding: 20px;
-            overflow-y: auto; /* Permite rolagem na vertical */
+            overflow-y: auto;
+            box-sizing: border-box; /* Garante que padding seja considerado dentro do tamanho da viewport */
         }
 
         p {
-            font-size: 1.5em; /* Aumentado o tamanho da fonte */
+            font-size: 1.5em; /* Tamanho para desktop */
             margin-bottom: 20px;
-            color: #b0bec5; /* Um tom mais claro para contraste */
-            transform: scale(1); /* Ponto de origem alterado para normal */
+            color: #b0bec5;
+            transform: scale(1);
         }
 
         ol {
             list-style: none;
             padding: 0;
-            max-width: 600px; /* Limitar a largura da lista para centralizar */
+            max-width: 600px; /* Limita a largura da lista para centralizar */
+            width: 100%; /* Faz a lista ocupar toda a largura disponível em dispositivos menores */
         }
 
         li {
-            background: rgba(44, 44, 44, 0.8); /* Cartões em um tom mais claro e semi-transparente */
+            background: rgba(44, 44, 44, 0.8);
             margin: 10px 0;
             padding: 15px;
             border-radius: 8px;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.7);
             transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
-            opacity: 0; /* Começa invisível */
+            opacity: 0;
             animation: zoomIn 0.5s ease forwards;
-            animation-delay: calc(0.5s + 0.2s * var(--i)); /* Atraso baseado na posição do item */
+            animation-delay: calc(0.5s + 0.2s * var(--i));
         }
 
         @keyframes zoomIn {
@@ -78,12 +80,37 @@
 
         li:hover {
             transform: translateY(-3px);
-            background-color: #3a3a3a; /* Fundo mais claro ao passar o mouse */
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8); /* Aumenta a sombra ao passar o mouse */
+            background-color: #3a3a3a;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
         }
 
         .color-indicator {
             font-weight: bold;
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            p {
+                font-size: 1.2em; /* Ajusta o tamanho da fonte em dispositivos menores */
+            }
+
+            li {
+                padding: 10px; /* Reduz o padding dos itens em dispositivos menores */
+            }
+
+            ol {
+                max-width: 100%; /* Garante que a lista ocupe toda a largura da tela em celulares */
+            }
+        }
+
+        @media (max-width: 480px) {
+            p {
+                font-size: 1em; /* Ajusta ainda mais o tamanho da fonte em telas pequenas */
+            }
+
+            li {
+                padding: 8px; /* Reduz o padding ainda mais em celulares */
+            }
         }
     </style>
 </head>
