@@ -44,10 +44,8 @@
             font-size: 1.5em; /* Aumentado o tamanho da fonte */
             margin-bottom: 20px;
             color: #b0bec5; /* Um tom mais claro para contraste */
-            animation: fadeIn 1s ease forwards;
-            animation-delay: 0.3s; /* Atraso ajustado na animação do parágrafo */
-            transform: scale(0.95); /* Ajusta a escala do texto */
-            transform-origin: top center; /* Altera o ponto de origem para o topo */
+            /* Removendo a animação do parágrafo */
+            transform: scale(1); /* Ponto de origem alterado para normal */
         }
 
         ol {
@@ -66,11 +64,6 @@
             animation: zoomIn 0.5s ease forwards;
             opacity: 0; /* Começa invisível */
             animation-delay: calc(0.5s + 0.2s * var(--i)); /* Atraso baseado na posição do item */
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
         }
 
         @keyframes zoomIn {
