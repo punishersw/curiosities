@@ -36,7 +36,7 @@
             height: 100vh; /* Altura inicial */
             text-align: center;
             color: #e0e0e0;
-            padding: 20px;
+            padding: 40px 20px; /* Aumentado o padding para melhor espaçamento */
             overflow-y: auto; /* Permite rolagem na vertical */
         }
 
@@ -48,12 +48,14 @@
             animation-delay: 0.5s; /* Atraso na animação do parágrafo */
             transform: scale(0.85); /* Ajusta a escala do texto */
             transform-origin: top center; /* Altera o ponto de origem para o topo */
+            line-height: 1.5; /* Aumenta o espaçamento entre as linhas para melhor legibilidade */
         }
 
         ol {
             list-style: none;
             padding: 0;
             max-width: 600px; /* Limitar a largura da lista para centralizar */
+            margin: 0 auto; /* Centraliza a lista horizontalmente */
         }
 
         li {
@@ -91,6 +93,7 @@
 
         .color-indicator {
             font-weight: bold;
+            font-size: 1.1em; /* Aumenta um pouco o tamanho da fonte para destaque */
         }
     </style>
 </head>
