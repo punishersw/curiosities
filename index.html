@@ -25,7 +25,17 @@
             background-repeat: no-repeat;
             background-size: cover;
             z-index: -1; /* Coloca o fundo atrás de todo o conteúdo */
-            filter: blur(2px); /* Adiciona um desfoque para o efeito parallax */
+            filter: blur(4px); /* Aumenta o desfoque para o efeito parallax */
+            animation: fadeIn 2s ease-in; /* Animação de entrada para a imagem de fundo */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         .content {
@@ -39,6 +49,7 @@
             padding: 20px;
             overflow-y: auto; /* Permite rolagem caso o conteúdo exceda a altura da tela */
             box-sizing: border-box; /* Garante que padding seja considerado dentro do tamanho da viewport */
+            backdrop-filter: blur(5px); /* Adiciona um efeito de desfoque ao conteúdo */
         }
 
         p {
@@ -59,7 +70,7 @@
             margin: 10px 0;
             padding: 15px;
             border-radius: 8px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
             transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
             opacity: 0;
             animation: zoomIn 0.5s ease forwards;
@@ -78,9 +89,9 @@
         }
 
         li:hover {
-            transform: translateY(-3px);
+            transform: translateY(-5px);
             background-color: #3a3a3a;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.9);
         }
 
         .color-indicator {
