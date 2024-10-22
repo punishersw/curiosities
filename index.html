@@ -11,6 +11,8 @@
             padding: 0;
             background: linear-gradient(135deg, #1e1e1e, #121212);
             overflow: hidden; /* Desabilitar rolagem padrão */
+            height: 100vh; /* Altura da página */
+            position: relative; /* Para posicionar os círculos */
         }
 
         .parallax {
@@ -19,7 +21,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('your-background-image.jpg'); /* Adicione sua imagem de fundo */
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
@@ -38,6 +39,7 @@
             color: #e0e0e0;
             padding: 20px;
             overflow-y: auto; /* Permite rolagem na vertical */
+            position: relative; /* Para posicionar os círculos */
         }
 
         p {
@@ -58,10 +60,10 @@
             margin: 10px 0;
             padding: 15px;
             border-radius: 8px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.7);
-            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
-            opacity: 0; /* Começa invisível */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, background-color 0.3s;
             animation: zoomIn 0.5s ease forwards;
+            opacity: 0; /* Começa invisível */
             animation-delay: calc(0.5s + 0.2s * var(--i)); /* Atraso baseado na posição do item */
         }
 
@@ -79,11 +81,19 @@
         li:hover {
             transform: translateY(-3px);
             background-color: #3a3a3a; /* Fundo mais claro ao passar o mouse */
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8); /* Aumenta a sombra ao passar o mouse */
         }
 
         .color-indicator {
             font-weight: bold;
+        }
+
+        /* Estilo dos círculos que aparecem ao passar o mouse */
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none; /* Para que os círculos não bloqueiem a interação */
+            transition: transform 0.2s, opacity 0.2s;
+            opacity: 0.7;
         }
     </style>
 </head>
@@ -101,5 +111,38 @@
             <li style="--i:6;"><span class="color-indicator" style="color: #ff9800;">𝐋𝐚𝐫𝐚𝐧𝐣𝐚</span> ➙ Denota um sentimento de felicidade e alegria intensa.</li>
         </ol>
     </div>
+
+    <script>
+        const body = document.body;
+
+        // Função para criar círculos ao passar o mouse
+        function createCircle(e) {
+            const circle = document.createElement('div');
+            circle.classList.add('circle');
+            // Definindo uma posição aleatória e tamanho
+            const size = Math.random() * 50 + 20; // Tamanho entre 20 e 70px
+            circle.style.width = `${size}px`;
+            circle.style.height = `${size}px`;
+            circle.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`; // Cor aleatória
+
+            // Posição do círculo
+            circle.style.left = `${e.pageX}px`;
+            circle.style.top = `${e.pageY}px`;
+
+            body.appendChild(circle);
+
+            // Remover o círculo após um tempo
+            setTimeout(() => {
+                circle.style.transform = 'scale(0)';
+                circle.style.opacity = '0';
+                setTimeout(() => {
+                    circle.remove();
+                }, 200); // Tempo para esperar a animação de remoção
+            }, 200);
+        }
+
+        // Evento de movimento do mouse
+        document.addEventListener('mousemove', createCircle);
+    </script>
 </body>
 </html>
