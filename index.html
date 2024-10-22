@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Descubra Curiosidades Ocultas</title>
+    <title>Interação Divertida com o Mouse</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -33,13 +33,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* Ajustado para o início da página */
+            justify-content: center; /* Centralizado verticalmente */
             height: 100vh; /* Altura inicial */
             text-align: center;
             color: #e0e0e0;
             padding: 20px;
-            overflow-y: auto; /* Permite rolagem na vertical */
-            position: relative; /* Para posicionar os círculos */
+            position: relative; /* Para que a interação do mouse ocorra atrás do conteúdo */
+            z-index: 1; /* Certifica-se de que o conteúdo está na frente */
         }
 
         p {
@@ -94,6 +94,7 @@
             pointer-events: none; /* Para que os círculos não bloqueiem a interação */
             transition: transform 0.2s, opacity 0.2s;
             opacity: 0.7;
+            z-index: 0; /* Círculos atrás do conteúdo */
         }
     </style>
 </head>
