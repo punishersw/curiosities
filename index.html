@@ -12,14 +12,14 @@
             padding: 0;
             background-color: #1e1e1e;
             color: #f0f0f0;
+            height: 100vh; /* Define a altura total da tela */
+            overflow: hidden; /* Desabilita rolagem */
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Centraliza o conteúdo */
         }
 
         .content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
             text-align: center;
             padding: 20px;
         }
@@ -34,7 +34,7 @@
             list-style: none;
             padding: 0;
             max-width: 600px;
-            width: 100%;
+            margin: 0 auto; /* Centraliza a lista */
         }
 
         li {
@@ -56,10 +56,6 @@
 
             li {
                 padding: 8px;
-            }
-
-            ol {
-                max-width: 100%;
             }
         }
 
@@ -88,4 +84,4 @@
         </ol>
     </div>
 </body>
-</
+</html>
