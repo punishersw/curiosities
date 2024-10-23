@@ -10,53 +10,22 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #0a0a0a, #1e1e1e);
-            overflow: hidden; /* Desabilitar rolagem padrão */
-        }
-
-        .parallax {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('your-background-image.jpg'); /* Adicione sua imagem de fundo */
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            z-index: -1; /* Coloca o fundo atrás de todo o conteúdo */
-            filter: blur(6px); /* Aumenta o desfoque para o efeito parallax */
-            animation: fadeIn 2s ease-in; /* Animação de entrada para a imagem de fundo */
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            background-color: #1e1e1e;
+            color: #f0f0f0;
         }
 
         .content {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center; /* Alinha o conteúdo no centro da tela */
+            justify-content: center;
             height: 100vh;
             text-align: center;
-            color: #f0f0f0;
             padding: 20px;
-            overflow-y: auto; /* Permite rolagem caso o conteúdo exceda a altura da tela */
-            box-sizing: border-box; /* Garante que padding seja considerado dentro do tamanho da viewport */
-            backdrop-filter: blur(8px); /* Aumenta o desfoque do fundo */
-            border-radius: 15px; /* Arredonda os cantos do conteúdo */
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
         }
 
         p {
-            font-size: 1.5em; /* Tamanho para desktop */
+            font-size: 1.5em;
             margin-bottom: 20px;
             color: #b0bec5;
         }
@@ -64,37 +33,15 @@
         ol {
             list-style: none;
             padding: 0;
-            max-width: 600px; /* Limita a largura da lista para centralizar */
-            width: 100%; /* Faz a lista ocupar toda a largura disponível em dispositivos menores */
+            max-width: 600px;
+            width: 100%;
         }
 
         li {
-            background: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente */
             margin: 10px 0;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
-            opacity: 0;
-            animation: zoomIn 0.5s ease forwards;
-            animation-delay: calc(0.5s + 0.2s * var(--i));
-        }
-
-        @keyframes zoomIn {
-            from {
-                transform: scale(0.5);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        li:hover {
-            transform: translateY(-5px);
-            background-color: rgba(255, 255, 255, 0.2); /* Aumenta a opacidade ao passar o mouse */
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.9);
+            padding: 10px;
+            background: #2a2a2a;
+            border-radius: 5px;
         }
 
         .color-indicator {
@@ -104,42 +51,41 @@
         /* Estilos responsivos */
         @media (max-width: 768px) {
             p {
-                font-size: 1.2em; /* Ajusta o tamanho da fonte em dispositivos menores */
+                font-size: 1.2em;
             }
 
             li {
-                padding: 10px; /* Reduz o padding dos itens em dispositivos menores */
+                padding: 8px;
             }
 
             ol {
-                max-width: 100%; /* Garante que a lista ocupe toda a largura da tela em celulares */
+                max-width: 100%;
             }
         }
 
         @media (max-width: 480px) {
             p {
-                font-size: 1em; /* Ajusta ainda mais o tamanho da fonte em telas pequenas */
+                font-size: 1em;
             }
 
             li {
-                padding: 8px; /* Reduz o padding ainda mais em celulares */
+                padding: 6px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="parallax"></div>
     <div class="content">
         <p>Os olhos de Saymon mudam de cor conforme suas emoções. Cada cor reflete um estado emocional específico:</p>
         <ol>
-            <li style="--i:0;"><span class="color-indicator" style="color: #ffeb3b;">𝐀𝐦𝐚𝐫𝐞𝐥𝐨</span> ➙ Representa esperança e expectativa sobre o futuro.</li>
-            <li style="--i:1;"><span class="color-indicator" style="color: #00bcd4;">𝐂𝐢𝐚𝐧𝐨</span> ➙ Indica um estado de calma, capaz de neutralizar o descontrole.</li>
-            <li style="--i:2;"><span class="color-indicator" style="color: #9e9e9e;">𝐂𝐢𝐧𝐳𝐚</span> ➙ Sinaliza indecisão e confusão, dificultando escolhas e ações.</li>
-            <li style="--i:3;"><span class="color-indicator" style="color: #f44336;">𝐕𝐞𝐫𝐦𝐞𝐥𝐡𝐨</span> ➙ Expressa uma raiva imensa e incontrolável, demonstrando fúria extrema.</li>
-            <li style="--i:4;"><span class="color-indicator" style="color: #4caf50;">𝐕𝐞𝐫𝐝𝐞</span> ➙ Reflete curiosidade e um desejo profundo de aprender e explorar.</li>
-            <li style="--i:5;"><span class="color-indicator" style="color: #9c27b0;">𝐑𝐨𝐱𝐨</span> ➙ Simboliza sabedoria, envolta em mistérios e enigmas.</li>
-            <li style="--i:6;"><span class="color-indicator" style="color: #ff9800;">𝐋𝐚𝐫𝐚𝐧𝐣𝐚</span> ➙ Denota um sentimento de felicidade e alegria intensa.</li>
+            <li><span class="color-indicator" style="color: #ffeb3b;">𝐀𝐦𝐚𝐫𝐞𝐥𝐨</span> ➙ Representa esperança e expectativa sobre o futuro.</li>
+            <li><span class="color-indicator" style="color: #00bcd4;">𝐂𝐢𝐚𝐧𝐨</span> ➙ Indica um estado de calma, capaz de neutralizar o descontrole.</li>
+            <li><span class="color-indicator" style="color: #9e9e9e;">𝐂𝐢𝐧𝐳𝐚</span> ➙ Sinaliza indecisão e confusão, dificultando escolhas e ações.</li>
+            <li><span class="color-indicator" style="color: #f44336;">𝐕𝐞𝐫𝐦𝐞𝐥𝐡𝐨</span> ➙ Expressa uma raiva imensa e incontrolável, demonstrando fúria extrema.</li>
+            <li><span class="color-indicator" style="color: #4caf50;">𝐕𝐞𝐫𝐝𝐞</span> ➙ Reflete curiosidade e um desejo profundo de aprender e explorar.</li>
+            <li><span class="color-indicator" style="color: #9c27b0;">𝐑𝐨𝐱𝐨</span> ➙ Simboliza sabedoria, envolta em mistérios e enigmas.</li>
+            <li><span class="color-indicator" style="color: #ff9800;">𝐋𝐚𝐫𝐚𝐧𝐣𝐚</span> ➙ Denota um sentimento de felicidade e alegria intensa.</li>
         </ol>
     </div>
 </body>
-</html>
+</
