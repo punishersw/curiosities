@@ -10,42 +10,53 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #1e1e1e;
-            color: #f0f0f0;
-            height: 100vh; /* Define a altura total da tela */
-            overflow: hidden; /* Desabilita rolagem */
+            background-color: #f0f0f0; /* Fundo claro para mais leveza */
+            color: #333; /* Texto mais suave, menos contraste */
+            height: 100vh;
+            overflow: hidden;
             display: flex;
             align-items: center;
-            justify-content: center; /* Centraliza o conteúdo */
+            justify-content: center;
         }
 
         .content {
             text-align: center;
             padding: 20px;
+            background: rgba(255, 255, 255, 0.8); /* Fundo mais claro e translúcido */
+            border-radius: 10px; /* Bordas arredondadas para um visual mais amigável */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra leve para dar profundidade */
         }
 
         p {
-            font-size: 1.5em;
+            font-size: 1.4em;
             margin-bottom: 20px;
-            color: #b0bec5;
+            color: #555; /* Tom de cinza suave */
         }
 
         ol {
             list-style: none;
             padding: 0;
             max-width: 600px;
-            margin: 0 auto; /* Centraliza a lista */
+            margin: 0 auto;
         }
 
         li {
             margin: 10px 0;
-            padding: 10px;
-            background: #2a2a2a;
-            border-radius: 5px;
+            padding: 12px;
+            background: #e0f7fa; /* Azul claro acolhedor */
+            border-radius: 8px;
+            transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+        }
+
+        li:hover {
+            transform: translateY(-3px);
+            background-color: #b2ebf2; /* Leve mudança ao passar o mouse */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Sombra mais forte ao hover */
         }
 
         .color-indicator {
             font-weight: bold;
+            color: #00796b; /* Tom de verde calmo */
         }
 
         /* Estilos responsivos */
@@ -55,7 +66,7 @@
             }
 
             li {
-                padding: 8px;
+                padding: 10px;
             }
         }
 
@@ -65,7 +76,7 @@
             }
 
             li {
-                padding: 6px;
+                padding: 8px;
             }
         }
     </style>
@@ -74,13 +85,13 @@
     <div class="content">
         <p>Os olhos de Saymon mudam de cor conforme suas emoções. Cada cor reflete um estado emocional específico:</p>
         <ol>
-            <li><span class="color-indicator" style="color: #ffeb3b;">𝐀𝐦𝐚𝐫𝐞𝐥𝐨</span> ➙ Representa esperança e expectativa sobre o futuro.</li>
-            <li><span class="color-indicator" style="color: #00bcd4;">𝐂𝐢𝐚𝐧𝐨</span> ➙ Indica um estado de calma, capaz de neutralizar o descontrole.</li>
-            <li><span class="color-indicator" style="color: #9e9e9e;">𝐂𝐢𝐧𝐳𝐚</span> ➙ Sinaliza indecisão e confusão, dificultando escolhas e ações.</li>
-            <li><span class="color-indicator" style="color: #f44336;">𝐕𝐞𝐫𝐦𝐞𝐥𝐡𝐨</span> ➙ Expressa uma raiva imensa e incontrolável, demonstrando fúria extrema.</li>
-            <li><span class="color-indicator" style="color: #4caf50;">𝐕𝐞𝐫𝐝𝐞</span> ➙ Reflete curiosidade e um desejo profundo de aprender e explorar.</li>
-            <li><span class="color-indicator" style="color: #9c27b0;">𝐑𝐨𝐱𝐨</span> ➙ Simboliza sabedoria, envolta em mistérios e enigmas.</li>
-            <li><span class="color-indicator" style="color: #ff9800;">𝐋𝐚𝐫𝐚𝐧𝐣𝐚</span> ➙ Denota um sentimento de felicidade e alegria intensa.</li>
+            <li><span class="color-indicator">𝐀𝐦𝐚𝐫𝐞𝐥𝐨</span> ➙ Representa esperança e expectativa sobre o futuro.</li>
+            <li><span class="color-indicator">𝐂𝐢𝐚𝐧𝐨</span> ➙ Indica um estado de calma, capaz de neutralizar o descontrole.</li>
+            <li><span class="color-indicator">𝐂𝐢𝐧𝐳𝐚</span> ➙ Sinaliza indecisão e confusão, dificultando escolhas e ações.</li>
+            <li><span class="color-indicator">𝐕𝐞𝐫𝐦𝐞𝐥𝐡𝐨</span> ➙ Expressa uma raiva imensa e incontrolável, demonstrando fúria extrema.</li>
+            <li><span class="color-indicator">𝐕𝐞𝐫𝐝𝐞</span> ➙ Reflete curiosidade e um desejo profundo de aprender e explorar.</li>
+            <li><span class="color-indicator">𝐑𝐨𝐱𝐨</span> ➙ Simboliza sabedoria, envolta em mistérios e enigmas.</li>
+            <li><span class="color-indicator">𝐋𝐚𝐫𝐚𝐧𝐣𝐚</span> ➙ Denota um sentimento de felicidade e alegria intensa.</li>
         </ol>
     </div>
 </body>
